@@ -105,8 +105,8 @@ class DashboardComponent extends React.Component {
                 <header>
                     <h1>Hello {this.state.user.name}</h1>
                     <nav>
-                        <Link to={"/dashboard/"+this.props.userId+"/update"}>Update profile</Link>
-                        <Link to={"/"}>Logout</Link>
+                        <Link style={{ textDecoration: 'none' }} to={"/dashboard/"+this.props.userId+"/update"}>Update profile</Link> -
+                        <Link to={"/"}> Logout</Link>
                     </nav>
                 </header>
                 <div className={"ButtonBar"}>

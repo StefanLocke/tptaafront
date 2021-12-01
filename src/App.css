@@ -34,9 +34,6 @@
     color: #61dafb;
 }
 
-.Link {
-
-}
 
 
 .card {
@@ -95,3 +92,6 @@
     flex-direction: column;
 }
 
+a {
+    color: cyan;
+}
