@@ -1,33 +1,49 @@
 import React from 'react'
+import {Link, useParams} from "react-router-dom";
 
-const UserUpdater = ({user,onUpdate}) => {
 
 
-    function onUpdate() {
 
-       /* fetch("http://localhost:8080/user/update?id=" + this.updateId + "&email=" + this.updateEmail + "&name=" + this.updateName)
+
+function UserUpdater(){
+    let params = useParams()
+    return <UserUpdaterComponent userId={params.id} />
+}
+
+class UserUpdaterComponent extends React.Component {
+
+
+    clicked() {
+       fetch("http://localhost:8080/user/update?id=" + this.updateId + "&email=" + this.updateEmail + "&name=" + this.updateName)
             .then(() => {
-                onUpdate()
+
             })
-            .catch(console.log);*/
-        console.log("Want to update")
+            .catch(console.log);
     }
 
 
-    let updateId = user;
-    let updateName;
-    let updateEmail;
+    updateId = this.props.userId;
+    updateName;
+    updateEmail;
 
+    render() {
+        return (
+            <div className={"App UserUpdater"}>
+                <Link to={"/dashboard/" + this.props.userId}>Back</Link>
+                <h3>Update your profile (User : {this.updateId})</h3>
+                <div>Name : <input onChange={(evt) => {
+                    this.updateName = evt.target.value
+                }}/></div>
+                <div>Email : <input onChange={(evt) => {
+                    this.updateEmail = evt.target.value
+                }}/></div>
+                <div>
+                    <button onClick={() => this.clicked()}>Update</button>
+                </div>
+            </div>
 
-    return (
-        <div className={"UserUpdater"}>
-            <h3>Update your profile (User : {updateId})</h3>
-            <div>Name : <input onChange={(evt) => {updateName = evt.target.value}}/></div>
-            <div>Email : <input onChange={(evt) => {updateEmail = evt.target.value}}/></div>
-            <div><button onClick={()=>onUpdate()}>Update</button></div>
-        </div>
-
-    );
+        );
+    }
 }
 
 export default UserUpdater;

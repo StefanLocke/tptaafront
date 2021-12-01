@@ -1,7 +1,6 @@
 import './App.css';
 import React from "react";
-import Meetings from './components/meetings';
-import Users from './components/users';
+
 import UserUpdater from './components/userUpdater';
 import {
     BrowserRouter,
@@ -21,6 +20,7 @@ function App() {
             <Routes>
                 <Route path={"/"} element={<LandingPage></LandingPage>}/>
                 <Route path={"/dashboard/:id"} element={<Dashboard></Dashboard>} />
+                <Route path={"/dashboard/:id/update"} element={<UserUpdater></UserUpdater> } />
             </Routes>
         </BrowserRouter>
     );

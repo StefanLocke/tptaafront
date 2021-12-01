@@ -2,14 +2,17 @@ import React from 'react'
 
 const Meetings = ({ meetings }) => {
     return (
-        <div>
-            <center><h1>meeting List</h1></center>
+        <div className={"Meetings"}>
             {meetings.map((meeting) => (
-                <div className="card">
+                <div className="card Meeting">
                     <div className="card-body">
-                        <h5 className="card-title">Meeting {meeting.id}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">Organiser : {meeting.organiser.id} Student : {meeting.student==null?"None":meeting.student.id}</h6>
-                        <p className="card-text">Start : {new Date(meeting.startTime).getHours()}:{new Date(meeting.startTime).getMinutes()} End : {new Date(meeting.endTime).getHours()}:{new Date(meeting.endTime).getMinutes()}</p>
+                        <p className="card-title">Meeting {meeting.id}</p>
+                        <p className="card-text">Organiser : [{meeting.organiser.id}]{meeting.organiser.name}</p>
+                        <p className="card-subtitle">E-mail : {meeting.organiser.email}</p>
+                        <p className="card-text">Student : [{meeting.student==null?"None":meeting.student.id}]{meeting.student==null?"None":meeting.student.name}</p>
+                        <p className="card-subtitle">E-mail : {meeting.student==null?"None":meeting.student.email}</p>
+                        <p className="card-text">Start : {new Date(meeting.startTime).getHours()}:{new Date(meeting.startTime).getMinutes()}</p>
+                        <p className="card-text">End : {new Date(meeting.endTime).getHours()}:{new Date(meeting.endTime).getMinutes()}</p>
                     </div>
                 </div>
             ))}

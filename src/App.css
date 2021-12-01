@@ -6,6 +6,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-logo {
@@ -42,6 +43,23 @@
     background-color: white;
     color: black;
     border-radius: 10px;
+    display: flex;
+
+}
+
+.card-title {
+    font-size: 100%;
+    font-weight: bolder;
+}
+
+.card-subtitle {
+    font-size: 65%;
+
+}
+
+.card-text {
+    font-size: 75%;
+    
 }
 
 .Meetings {
@@ -50,7 +68,8 @@
 }
 
 .Meeting {
-
+    margin: 20px;
+    padding:5px
 }
 
 .Users {
@@ -70,5 +89,9 @@
 
 .Button {
 
+}
+.Button-area {
+    display: flex;
+    flex-direction: column;
 }
 
